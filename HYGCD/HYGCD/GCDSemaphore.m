@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  GCDSemaphore.m
 //  HYGCD
 //
 //  Created by HEYANG on 16/3/16.
@@ -9,12 +9,8 @@
 //  https://github.com/HeYang123456789
 //
 
-#import <UIKit/UIKit.h>
+#import "GCDSemaphore.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@implementation GCDSemaphore
 
 @end
-

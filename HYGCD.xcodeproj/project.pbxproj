@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		3B01D3B71C997473007B03A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B01D3B61C997473007B03A7 /* main.m */; };
 		3B01D3BA1C997473007B03A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B01D3B91C997473007B03A7 /* AppDelegate.m */; };
-		3B01D3BD1C997473007B03A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B01D3BC1C997473007B03A7 /* ViewController.m */; };
-		3B01D3C01C997473007B03A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B01D3BE1C997473007B03A7 /* Main.storyboard */; };
 		3B01D3C21C997473007B03A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B01D3C11C997473007B03A7 /* Assets.xcassets */; };
 		3B01D3C51C997473007B03A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B01D3C31C997473007B03A7 /* LaunchScreen.storyboard */; };
 		3B01D3D01C997473007B03A7 /* HYGCDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B01D3CF1C997473007B03A7 /* HYGCDTests.m */; };
 		3B01D3DB1C997473007B03A7 /* HYGCDUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B01D3DA1C997473007B03A7 /* HYGCDUITests.m */; };
+		3B128D5D1C997B45007AAEF7 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B128D5C1C997B45007AAEF7 /* GCDGroup.m */; };
+		3B128D601C997B7E007AAEF7 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B128D5F1C997B7E007AAEF7 /* GCDQueue.m */; };
+		3B128D631C997BA8007AAEF7 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B128D621C997BA8007AAEF7 /* GCDSemaphore.m */; };
+		3B128D661C997E33007AAEF7 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B128D651C997E33007AAEF7 /* GCDTimer.m */; };
+		3B128D691C9987FB007AAEF7 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B128D681C9987FB007AAEF7 /* GCD.m */; };
+		3B1DCAF01C999FD0004DFE9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1DCAEF1C999FD0004DFE9E /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +43,6 @@
 		3B01D3B61C997473007B03A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B01D3B81C997473007B03A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B01D3B91C997473007B03A7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3B01D3BB1C997473007B03A7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3B01D3BC1C997473007B03A7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3B01D3BF1C997473007B03A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B01D3C11C997473007B03A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B01D3C41C997473007B03A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B01D3C61C997473007B03A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +52,19 @@
 		3B01D3D61C997473007B03A7 /* HYGCDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HYGCDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B01D3DA1C997473007B03A7 /* HYGCDUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYGCDUITests.m; sourceTree = "<group>"; };
 		3B01D3DC1C997473007B03A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B128D581C997941007AAEF7 /* HYGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYGCD.h; sourceTree = "<group>"; };
+		3B128D5B1C997B45007AAEF7 /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
+		3B128D5C1C997B45007AAEF7 /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
+		3B128D5E1C997B7E007AAEF7 /* GCDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDQueue.h; sourceTree = "<group>"; };
+		3B128D5F1C997B7E007AAEF7 /* GCDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDQueue.m; sourceTree = "<group>"; };
+		3B128D611C997BA8007AAEF7 /* GCDSemaphore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSemaphore.h; sourceTree = "<group>"; };
+		3B128D621C997BA8007AAEF7 /* GCDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSemaphore.m; sourceTree = "<group>"; };
+		3B128D641C997E33007AAEF7 /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
+		3B128D651C997E33007AAEF7 /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
+		3B128D671C9987FB007AAEF7 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
+		3B128D681C9987FB007AAEF7 /* GCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
+		3B1DCAEE1C999FD0004DFE9E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3B1DCAEF1C999FD0004DFE9E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +115,11 @@
 		3B01D3B41C997473007B03A7 /* HYGCD */ = {
 			isa = PBXGroup;
 			children = (
+				3B128D571C997910007AAEF7 /* HYGCD */,
 				3B01D3B81C997473007B03A7 /* AppDelegate.h */,
 				3B01D3B91C997473007B03A7 /* AppDelegate.m */,
-				3B01D3BB1C997473007B03A7 /* ViewController.h */,
-				3B01D3BC1C997473007B03A7 /* ViewController.m */,
-				3B01D3BE1C997473007B03A7 /* Main.storyboard */,
+				3B1DCAEE1C999FD0004DFE9E /* ViewController.h */,
+				3B1DCAEF1C999FD0004DFE9E /* ViewController.m */,
 				3B01D3C11C997473007B03A7 /* Assets.xcassets */,
 				3B01D3C31C997473007B03A7 /* LaunchScreen.storyboard */,
 				3B01D3C61C997473007B03A7 /* Info.plist */,
@@ -138,6 +152,24 @@
 				3B01D3DC1C997473007B03A7 /* Info.plist */,
 			);
 			path = HYGCDUITests;
+			sourceTree = "<group>";
+		};
+		3B128D571C997910007AAEF7 /* HYGCD */ = {
+			isa = PBXGroup;
+			children = (
+				3B128D581C997941007AAEF7 /* HYGCD.h */,
+				3B128D671C9987FB007AAEF7 /* GCD.h */,
+				3B128D681C9987FB007AAEF7 /* GCD.m */,
+				3B128D5E1C997B7E007AAEF7 /* GCDQueue.h */,
+				3B128D5F1C997B7E007AAEF7 /* GCDQueue.m */,
+				3B128D5B1C997B45007AAEF7 /* GCDGroup.h */,
+				3B128D5C1C997B45007AAEF7 /* GCDGroup.m */,
+				3B128D611C997BA8007AAEF7 /* GCDSemaphore.h */,
+				3B128D621C997BA8007AAEF7 /* GCDSemaphore.m */,
+				3B128D641C997E33007AAEF7 /* GCDTimer.h */,
+				3B128D651C997E33007AAEF7 /* GCDTimer.m */,
+			);
+			path = HYGCD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +280,6 @@
 			files = (
 				3B01D3C51C997473007B03A7 /* LaunchScreen.storyboard in Resources */,
 				3B01D3C21C997473007B03A7 /* Assets.xcassets in Resources */,
-				3B01D3C01C997473007B03A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +304,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B01D3BD1C997473007B03A7 /* ViewController.m in Sources */,
+				3B128D631C997BA8007AAEF7 /* GCDSemaphore.m in Sources */,
+				3B128D601C997B7E007AAEF7 /* GCDQueue.m in Sources */,
+				3B1DCAF01C999FD0004DFE9E /* ViewController.m in Sources */,
 				3B01D3BA1C997473007B03A7 /* AppDelegate.m in Sources */,
+				3B128D661C997E33007AAEF7 /* GCDTimer.m in Sources */,
 				3B01D3B71C997473007B03A7 /* main.m in Sources */,
+				3B128D691C9987FB007AAEF7 /* GCD.m in Sources */,
+				3B128D5D1C997B45007AAEF7 /* GCDGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,14 +347,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3B01D3BE1C997473007B03A7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B01D3BF1C997473007B03A7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3B01D3C31C997473007B03A7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -501,6 +529,7 @@
 				3B01D3E11C997473007B03A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B01D3E21C997473007B03A7 /* Build configuration list for PBXNativeTarget "HYGCDTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +538,7 @@
 				3B01D3E41C997473007B03A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B01D3E51C997473007B03A7 /* Build configuration list for PBXNativeTarget "HYGCDUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +547,7 @@
 				3B01D3E71C997473007B03A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

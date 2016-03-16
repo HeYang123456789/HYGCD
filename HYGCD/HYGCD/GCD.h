@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  GCD.h
 //  HYGCD
 //
 //  Created by HEYANG on 16/3/16.
@@ -9,12 +9,10 @@
 //  https://github.com/HeYang123456789
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "GCDQueue.h"
 
-@property (strong, nonatomic) UIWindow *window;
-
+@interface GCD : NSObject
 
 @end
-
