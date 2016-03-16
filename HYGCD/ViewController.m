@@ -26,8 +26,13 @@
 }
 
 -(void)setUp{
-    
+    [GCD executeAsyncTaskInGlobalQueue:^{
+        sleep(2);
+        NSLog(@"--1--");
+    }];
+    [GCD executeDelayTaskInGlobalQueue:^{
+        NSLog(@"--2--");
+    } afterDelaySecs:1];
 }
-
 
 @end
