@@ -19,7 +19,11 @@
 #pragma 初始化
 - (instancetype)init;
 - (instancetype)initInQueue:(GCDQueue *)queue;
-
+- (instancetype)initInMainQueue;
+- (instancetype)initInGlobalQueue;
+- (instancetype)initInGlobalLowPriorityQueue;
+- (instancetype)initInGlobalHighPriorityQueue;
+- (instancetype)initInGlobalBackgroundPriorityQueue;
 #pragma mark - 用法
 - (void)event:(dispatch_block_t)task timeInterval:(uint64_t)interval;
 - (void)event:(dispatch_block_t)task timeInterval:(uint64_t)interval delay:(uint64_t)delay;

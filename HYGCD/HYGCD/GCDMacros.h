@@ -25,16 +25,6 @@ dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
 #define globalBackgroundPriorityQueue \
 dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
 
-//// 主队列
-#define MainQueue [Main_Queue ]
-// 四个不同优先级的全局并发队列
-#define GlobalQueue
-
-#define GlobalHighPriorityQueue
-
-#define GlobalLowPriorityQueue
-
-#define GlobalBackgroundPriorityQueue
 
 
 ///宏定义简化队列的类型

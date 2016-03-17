@@ -54,6 +54,58 @@
     return self;
 }
 
+- (instancetype)initInMainQueue {
+    
+    self = [super init];
+    if (self) {
+        
+        self.dispatchSource = \
+        dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, mainQueue);
+    }
+    
+    return self;
+}
+- (instancetype)initInGlobalQueue {
+    
+    self = [super init];
+    if (self) {
+        self.dispatchSource = \
+        dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, globalQueue);
+    }
+    
+    return self;
+}
+- (instancetype)initInGlobalLowPriorityQueue {
+    
+    self = [super init];
+    if (self) {
+        self.dispatchSource = \
+        dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, globalLowPriorityQueue);
+    }
+    
+    return self;
+}
+- (instancetype)initInGlobalHighPriorityQueue {
+    
+    self = [super init];
+    if (self) {
+        self.dispatchSource = \
+        dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, globalHighPriorityQueue);
+    }
+    
+    return self;
+}
+- (instancetype)initInGlobalBackgroundPriorityQueue {
+    
+    self = [super init];
+    if (self) {
+        self.dispatchSource = \
+        dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, globalBackgroundPriorityQueue);
+    }
+    
+    return self;
+}
+
 - (void)setUp{
     // 刚创建，所以未销毁
     self.isDestroyed = NO;

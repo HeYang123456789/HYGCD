@@ -14,6 +14,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) GCDTimer *timer;
+
 @end
 
 @implementation ViewController
@@ -24,100 +26,79 @@
     [self setUp];
     
 }
-
+#pragma mark - 使用示例
 -(void)setUp{
     
-    // 注意下面会出现死锁的两个情况
-//// sync + MainQueue
-//==[GCD executeSyncTaskInMainQueue:^{
-//==NSLog(@"hello");
-//==}];
+    // 在全局并发队列中处理下载任务，然后回到主线程中更新UI
     
-//// 两个sync相互嵌套+serial 会出现死锁
-//==GCDQueue* queue = [[GCDQueue alloc] initSerial];
-//==[GCD executeSyncTask:^{
-//==    NSLog(@"World");
-//==    [GCD executeSyncTask:^{
-//==        NSLog(@"--haha--");
-//==    } inQueue:queue];
-//==} inQueue:queue];
-    
-
-    
-    [GCD executeAsyncTaskInGlobalQueue:^{
+    [GlobalQueue executeAsyncTask:^{
         
-        // download task, etc
+        // download task , etc
         
-        [GCD executeAsyncTaskInMainQueue:^{
+        [MainQueue executeAsyncTask:^{
             
             // update UI
         }];
     }];
     
     
-    
-    
-    
+    // 使用GCD的线程组
     // init group
     GCDGroup *group = [GCDGroup new];
     
-//    // add to group
-//    [[GCDQueue GlobalQueue] execute:^{
-//        
-//        // task one
-//        
-//    } inGroup:group];
-//    
-//    // add to group
-//    [[GCDQueue GlobalQueue] execute:^{
-//        
-//        // task two
-//        
-//    } inGroup:group];
-//    
-//    // notify in MainQueue
-//    [[GCDQueue MainQueue] notify:^{
-//        
-//        // task three
-//        
-//    } inGroup:group];
-//    
-//    
-//    
-//    
-//    // init timer
-//    self.timer = [[GCDTimer alloc] initInQueue:[GCDQueue MainQueue]];
-//    
-//    // timer event
-//    [self.timer event:^{
-//        
-//        // task
-//        
-//    } timeInterval:NSEC_PER_SEC * 3 delay:NSEC_PER_SEC * 3];
-//    
-//    // start timer
-//    [self.timer start];
-//    
-//    
-//    
-//    
-//    // init semaphore
-//    GCDSemaphore *semaphore = [GCDSemaphore new];
-//    
-//    // wait
-//    [GCDQueue executeInGlobalQueue:^{
-//        
-//        [semaphore wait];
-//        
-//        // todo sth else
-//    }];
-//    
-//    // signal
-//    [GCDQueue executeInGlobalQueue:^{
-//        
-//        // do sth
-//        [semaphore signal];
-//    }];
+    // add to group
+    [GlobalQueue executeTask:^{
+        
+        // task one
+        
+    } inGroup:group];
+    
+    // add to group
+    [GlobalQueue executeTask:^{
+        
+        // task two
+        
+    } inGroup:group];
+
+    // notify in MainQueue
+    [MainQueue notifyTask:^{
+        
+        // task three
+        
+    } inGroup:group];
+    
+    // 使用GCD的定时器
+    // init timer
+    self.timer = [[GCDTimer alloc] initInMainQueue];
+    
+    // timer event
+    [self.timer event:^{
+        
+        // task
+        
+    } timeInterval:NSEC_PER_SEC * 3 delay:NSEC_PER_SEC * 3];
+    
+    // start timer
+    [self.timer start];
+    
+    // 使用GCD的信号量
+    // init semaphore
+    GCDSemaphore *semaphore = [GCDSemaphore new];
+    
+    // wait
+    [GlobalQueue executeAsyncTask:^{
+        
+        [semaphore wait];
+        
+        // todo sth else
+    }];
+    
+    // signal
+    [GlobalQueue executeAsyncTask:^{
+        
+        // do sth
+        [semaphore signal];
+    }];
     
 }
 
