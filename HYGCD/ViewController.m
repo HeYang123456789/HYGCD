@@ -61,7 +61,7 @@
     } inGroup:group];
 
     // notify in MainQueue
-    [MainQueue notifyTask:^{
+    [GlobalQueue notifyTask:^{
         
         // task three
         

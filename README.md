@@ -2,6 +2,16 @@
 
 在实际开发中使用本人封装好的简单易用的面向对象的GCD接口，建议读者已经熟练掌握了GCD的各种常用的用法。如果读者对GCD的认识不深，可以阅读本人写的一篇关于GCD比较全面的博文：[IOS开发之多线程 -- GCD的方方面面](http://www.cnblogs.com/goodboy-heyang/p/5271513.html)。多多指教。
 
+### API接口使用示例代码
+
+![](http://a3.qpic.cn/psb?/V10CYGbV1hdHeK/DiiNVJJZjo4A2qVHMR11ZgSAb07S1gt6mMGy.XwOxkY!/b/dHABAAAAAAAA&bo=lgHGAAAAAAADB3M!&rf=viewer_4)
+
+![](http://a1.qpic.cn/psb?/V10CYGbV1hdHeK/B8F7umDVCtTjbezVvDwXA1mZ2PprvWiiNJWYaqWeixc!/b/dHEBAAAAAAAA&bo=IgGIAQAAAAADAI8!&rf=viewer_4)
+
+![](http://a1.qpic.cn/psb?/V10CYGbV1hdHeK/C0Wy6LsoA8YKX9mohhYWFM6OBrsJRjc1EiTfNtCF*mA!/b/dHEBAAAAAAAA&bo=8gHgAAAAAAADADY!&rf=viewer_4)
+
+![](http://a1.qpic.cn/psb?/V10CYGbV1hdHeK/SxdFXgzjwxd4zqU340uxAEDcv9u65KVj.NrX3FEWhCo!/b/dHEBAAAAAAAA&bo=mwEwAQAAAAADAI4!&rf=viewer_4)
+
 ### 封装GCD需要考虑到的功能
 
 队列：HYGCDQueue
