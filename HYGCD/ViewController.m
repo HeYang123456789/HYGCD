@@ -12,7 +12,6 @@
 #import "ViewController.h"
 #import "HYGCD.h"
 
-
 @interface ViewController ()
 
 @end
@@ -23,16 +22,103 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor greenColor];
     [self setUp];
+    
 }
 
 -(void)setUp{
+    
+    // 注意下面会出现死锁的两个情况
+//// sync + MainQueue
+//==[GCD executeSyncTaskInMainQueue:^{
+//==NSLog(@"hello");
+//==}];
+    
+//// 两个sync相互嵌套+serial 会出现死锁
+//==GCDQueue* queue = [[GCDQueue alloc] initSerial];
+//==[GCD executeSyncTask:^{
+//==    NSLog(@"World");
+//==    [GCD executeSyncTask:^{
+//==        NSLog(@"--haha--");
+//==    } inQueue:queue];
+//==} inQueue:queue];
+    
+
+    
     [GCD executeAsyncTaskInGlobalQueue:^{
-        sleep(2);
-        NSLog(@"--1--");
+        
+        // download task, etc
+        
+        [GCD executeAsyncTaskInMainQueue:^{
+            
+            // update UI
+        }];
     }];
-    [GCD executeDelayTaskInGlobalQueue:^{
-        NSLog(@"--2--");
-    } afterDelaySecs:1];
+    
+    
+    
+    
+    
+    // init group
+    GCDGroup *group = [GCDGroup new];
+    
+//    // add to group
+//    [[GCDQueue GlobalQueue] execute:^{
+//        
+//        // task one
+//        
+//    } inGroup:group];
+//    
+//    // add to group
+//    [[GCDQueue GlobalQueue] execute:^{
+//        
+//        // task two
+//        
+//    } inGroup:group];
+//    
+//    // notify in MainQueue
+//    [[GCDQueue MainQueue] notify:^{
+//        
+//        // task three
+//        
+//    } inGroup:group];
+//    
+//    
+//    
+//    
+//    // init timer
+//    self.timer = [[GCDTimer alloc] initInQueue:[GCDQueue MainQueue]];
+//    
+//    // timer event
+//    [self.timer event:^{
+//        
+//        // task
+//        
+//    } timeInterval:NSEC_PER_SEC * 3 delay:NSEC_PER_SEC * 3];
+//    
+//    // start timer
+//    [self.timer start];
+//    
+//    
+//    
+//    
+//    // init semaphore
+//    GCDSemaphore *semaphore = [GCDSemaphore new];
+//    
+//    // wait
+//    [GCDQueue executeInGlobalQueue:^{
+//        
+//        [semaphore wait];
+//        
+//        // todo sth else
+//    }];
+//    
+//    // signal
+//    [GCDQueue executeInGlobalQueue:^{
+//        
+//        // do sth
+//        [semaphore signal];
+//    }];
+    
 }
 
 @end

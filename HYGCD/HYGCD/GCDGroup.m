@@ -51,4 +51,8 @@
     return dispatch_group_wait(self.dispatchGroup, dispatch_time(DISPATCH_TIME_NOW, delta)) == 0;
 }
 
+- (void)dealloc{
+    self.dispatchGroup = nil;
+}
+
 @end

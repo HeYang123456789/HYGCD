@@ -10,16 +10,21 @@
 //
 
 #import "GCD.h"
+#import "GCDGroup.h"
 
 @implementation GCD
 
+
+
 #pragma mark - 执行同步任务
-+ (void)executeSyncTask:(dispatch_block_t)task inQueue:(dispatch_queue_t)queue{
++ (void)executeSyncTask:(dispatch_block_t)task inQueue:(GCDQueue*)queue{
     NSParameterAssert(task);
-    dispatch_sync(queue, task);
+    dispatch_sync(queue.dispatchQueue, task);
 }
 + (void)executeSyncTaskInMainQueue:(dispatch_block_t)task{
     NSParameterAssert(task);
+    // 如果当前队列是主队列，要提示奔溃处理
+    
     dispatch_sync(mainQueue, task);
 }
 + (void)executeSyncTaskInGlobalQueue:(dispatch_block_t)task{
@@ -41,9 +46,9 @@
 
 
 #pragma mark - 执行异步任务
-+ (void)executeAsyncTask:(dispatch_block_t)task inQueue:(dispatch_queue_t)queue{
++ (void)executeAsyncTask:(dispatch_block_t)task inQueue:(GCDQueue*)queue{
     NSParameterAssert(task);
-    dispatch_async(queue, task);
+    dispatch_async(queue.dispatchQueue, task);
 }
 + (void)executeAsyncTaskInMainQueue:(dispatch_block_t)task{
     NSParameterAssert(task);
@@ -183,11 +188,31 @@
 }
 
 #pragma mark - 一次性函数
-static dispatch_once_t onceToken;
-+ (void)executeOnceTask:(dispatch_block_t)task{
-    NSParameterAssert(task);
-    dispatch_once(&onceToken, task);
-}
+//+ (void)executeOnceTask:(dispatch_block_t)task{
+//    NSParameterAssert(task);
+//    GCDExecOnce(task);
+//}
 
+#pragma mark - 迭代函数
++ (void)applyExecuteTaskInMainQueue:(TaskBlock)task count:(float)count{
+    NSParameterAssert(task);
+    dispatch_apply(count, mainQueue, task);
+}
++ (void)applyExecuteTaskInGlobalQueue:(TaskBlock)task count:(float)count{
+    NSParameterAssert(task);
+    dispatch_apply(count, globalQueue, task);
+}
++ (void)applyExecuteTaskInGlobalLowPriorityQueue:(TaskBlock)task count:(float)count{
+    NSParameterAssert(task);
+    dispatch_apply(count, globalLowPriorityQueue, task);
+}
++ (void)applyExecuteTaskInGlobalHighPriorityQueue:(TaskBlock)task count:(float)count{
+    NSParameterAssert(task);
+    dispatch_apply(count, globalHighPriorityQueue, task);
+}
++ (void)applyExecuteTaskInGlobalBackgroundPriorityQueue:(TaskBlock)task count:(float)count{
+    NSParameterAssert(task);
+    dispatch_apply(count, globalBackgroundPriorityQueue, task);
+}
 
 @end

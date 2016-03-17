@@ -63,6 +63,7 @@
 		3B128D651C997E33007AAEF7 /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
 		3B128D671C9987FB007AAEF7 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		3B128D681C9987FB007AAEF7 /* GCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
+		3B1979E91C9A89B6006D180E /* GCDMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDMacros.h; sourceTree = "<group>"; };
 		3B1DCAEE1C999FD0004DFE9E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3B1DCAEF1C999FD0004DFE9E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +161,7 @@
 				3B128D581C997941007AAEF7 /* HYGCD.h */,
 				3B128D671C9987FB007AAEF7 /* GCD.h */,
 				3B128D681C9987FB007AAEF7 /* GCD.m */,
+				3B1979E91C9A89B6006D180E /* GCDMacros.h */,
 				3B128D5E1C997B7E007AAEF7 /* GCDQueue.h */,
 				3B128D5F1C997B7E007AAEF7 /* GCDQueue.m */,
 				3B128D5B1C997B45007AAEF7 /* GCDGroup.h */,

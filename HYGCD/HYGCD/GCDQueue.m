@@ -11,11 +11,12 @@
 
 
 #import "GCDQueue.h"
+#import "GCDGroup.h"
 
 @interface GCDQueue ()
 
 /** dispatch_queue_t */
-@property (nonatomic,strong)dispatch_queue_t dispatchQueue;
+@property (nonatomic,strong,readwrite)dispatch_queue_t dispatchQueue;
 
 @end
 
@@ -81,45 +82,63 @@
     return self;
 }
 
+#pragma mark - 执行任务
+-(void)executeAsyncTask:(dispatch_block_t)task{
+    NSParameterAssert(task);
+    dispatch_async(self.dispatchQueue, task);
+}
+-(void)executeSyncTask:(dispatch_block_t)task{
+    NSParameterAssert(task);
+    dispatch_sync(self.dispatchQueue, task);
+}
+-(void)executeAsyncTask:(dispatch_block_t)task afterDelaySecs:(NSTimeInterval)sec{
+    NSParameterAssert(task);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(sec * NSEC_PER_SEC)), self.dispatchQueue, task);
+}
+
+#pragma mark - 关于组
+-(void)executeTask:(dispatch_block_t)task inGroup:(GCDGroup*)group{
+    NSParameterAssert(task);
+    dispatch_group_async(group.dispatchGroup, self.dispatchQueue, task);
+}
+-(void)notifyTask:(dispatch_block_t)task inGroup:(GCDGroup*)group{
+    NSParameterAssert(task);
+    dispatch_group_notify(group.dispatchGroup, self.dispatchQueue, task);
+}
+
+
 #pragma mark - 操作当前队列
-- (void)suspendQueue{
+- (void)suspend{
     dispatch_suspend(self.dispatchQueue);
 }
 - (void)resume {
     dispatch_resume(self.dispatchQueue);
 }
+#pragma mark - 在当前队列中迭代执行任务
 
-#pragma mark - 暂停函数，暂停对应的系统提供的主队列
-+ (void)suspendMainQueue{
-    dispatch_suspend(mainQueue);
-}
-+ (void)suspendGlobalQueue{
-    dispatch_suspend(globalQueue);
-}
-+ (void)suspendGlobalLowPriorityQueue{
-    dispatch_suspend(globalLowPriorityQueue);
-}
-+ (void)suspendGlobalHighPriorityQueue{
-    dispatch_suspend(globalHighPriorityQueue);
-}
-+ (void)suspendGlobalBackgroundPriorityQueue{
-    dispatch_suspend(globalBackgroundPriorityQueue);
-}
-+ (void)resumeMainQueue{
-    dispatch_resume(mainQueue);
-}
-+ (void)resumeGlobalQueue{
-    dispatch_resume(globalQueue);
-}
-+ (void)resumeGlobalLowPriorityQueue{
-    dispatch_resume(globalLowPriorityQueue);
-}
-+ (void)resumeGlobalHighPriorityQueue{
-    dispatch_resume(globalHighPriorityQueue);
-}
-+ (void)resumeGlobalBackgroundPriorityQueue{
-    dispatch_resume(globalBackgroundPriorityQueue);
-}
+- (void)applyExecuteTask:(TaskBlock)task count:(float)count{
+    NSParameterAssert(task);
+    dispatch_apply(count, self.dispatchQueue, task);
+};
 
+
+- (void)dealloc{
+    self.dispatchQueue = nil;
+}
 
 @end
+
+@implementation Main_Queue
+
++ (dispatch_queue_t)getMainQueue{
+    return dispatch_get_main_queue();
+}
+
+#pragma mark - 主队列执行同步任务、异步任务、添加组任务
+
+@end
+
+
+
+
+

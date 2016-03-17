@@ -9,10 +9,13 @@
 //  https://github.com/HeYang123456789
 //
 
-#import <Foundation/Foundation.h>
 
+
+#import <Foundation/Foundation.h>
+#import "GCDMacros.h"
 #import "GCDQueue.h"
-#import "GCDGroup.h"
+
+@class GCDGroup;
 
 @interface GCD : NSObject
 
@@ -26,7 +29,7 @@
  */
 
 #pragma mark - 执行同步任务
-+ (void)executeSyncTask:(dispatch_block_t)task inQueue:(dispatch_queue_t)queue;
++ (void)executeSyncTask:(dispatch_block_t)task inQueue:(GCDQueue*)queue;
 + (void)executeSyncTaskInMainQueue:(dispatch_block_t)task;
 + (void)executeSyncTaskInGlobalQueue:(dispatch_block_t)task;
 + (void)executeSyncTaskInHighPriorityGlobalQueue:(dispatch_block_t)task;
@@ -35,7 +38,7 @@
 
 
 #pragma mark - 执行异步任务
-+ (void)executeAsyncTask:(dispatch_block_t)task inQueue:(dispatch_queue_t)queue;
++ (void)executeAsyncTask:(dispatch_block_t)task inQueue:(GCDQueue*)queue;
 + (void)executeAsyncTaskInMainQueue:(dispatch_block_t)task;
 + (void)executeAsyncTaskInGlobalQueue:(dispatch_block_t)task;
 + (void)executeAsyncTaskInHighPriorityGlobalQueue:(dispatch_block_t)task;
@@ -90,7 +93,19 @@
 + (void)resumeGlobalHighPriorityQueue;
 + (void)resumeGlobalBackgroundPriorityQueue;
 
-/***  一次性函数 */
-+ (void)executeOnceTask:(dispatch_block_t)task;
+#pragma mark - 一次性函数
+//+ (void)executeOnceTask:(dispatch_block_t)task;
+
+#pragma mark - 迭代函数
++ (void)applyExecuteTaskInMainQueue:(TaskBlock)task
+                              count:(float)count;
++ (void)applyExecuteTaskInGlobalQueue:(TaskBlock)task
+                                count:(float)count;
++ (void)applyExecuteTaskInGlobalLowPriorityQueue:(TaskBlock)task
+                                           count:(float)count;
++ (void)applyExecuteTaskInGlobalHighPriorityQueue:(TaskBlock)task
+                                            count:(float)count;
++ (void)applyExecuteTaskInGlobalBackgroundPriorityQueue:(TaskBlock)task
+                                                  count:(float)count;
 
 @end
