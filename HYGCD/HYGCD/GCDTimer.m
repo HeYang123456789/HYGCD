@@ -147,6 +147,10 @@
     [self setUp];
 }
 
+/**
+ *  下面对计时器的启动、挂起和销毁增加了逻辑处理，排除GCD计时器自身的冲突的逻辑
+ */
+
 - (void)start {
     if (!self.isDestroyed) {
         if (!self.isAlreadyResume) {

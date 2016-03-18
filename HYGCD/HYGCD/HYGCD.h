@@ -9,6 +9,10 @@
 //  https://github.com/HeYang123456789
 //
 
+/**
+ *  使用该GCD的简易封装的SDK，请在您的工程头文件中
+ *  #import "HYGCD.h"
+ */
 
 #import "GCD.h"
 #import "GCDSemaphore.h"
