@@ -245,7 +245,6 @@
 
 @implementation GlobalBackgroundPriorityQueue
 
-
 #pragma mark  执行同步任务
 + (void)executeSyncTask:(dispatch_block_t)task{
     NSParameterAssert(task);
@@ -263,6 +262,7 @@
     NSParameterAssert(task);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * sec), globalBackgroundPriorityQueue, task);
 }
+
 #pragma mark  和组相关
 /// execute
 + (void)executeTask:(dispatch_block_t)task

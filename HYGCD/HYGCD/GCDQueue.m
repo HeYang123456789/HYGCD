@@ -125,14 +125,7 @@
 
 @end
 
-@implementation Main_Queue
 
-+ (dispatch_queue_t)getMainQueue{
-    return dispatch_get_main_queue();
-}
-
-
-@end
 
 
 

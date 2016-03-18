@@ -24,13 +24,14 @@
 - (instancetype)initInGlobalLowPriorityQueue;
 - (instancetype)initInGlobalHighPriorityQueue;
 - (instancetype)initInGlobalBackgroundPriorityQueue;
+
 #pragma mark - 用法
 - (void)event:(dispatch_block_t)task timeInterval:(uint64_t)interval;
 - (void)event:(dispatch_block_t)task timeInterval:(uint64_t)interval delay:(uint64_t)delay;
 - (void)event:(dispatch_block_t)task timeIntervalWithSecs:(float)secs;
 - (void)event:(dispatch_block_t)task timeIntervalWithSecs:(float)secs delaySecs:(float)delaySecs;
 
-
+#pragma mark - 计时器的开始、暂停和销毁操作
 - (void)start;
 - (void)suspend;
 - (void)destroy;
