@@ -20,12 +20,10 @@
 
 @end
 
-
 @implementation GCDQueue
 + (void)initialize{
     
 }
-
 
 #pragma mark - 初始化,创建并发和串行队列
 ///因为创建调度队列的第二个参数值是可以确定的，具体值是有限个数的，而且这里就两个值
@@ -121,7 +119,6 @@
     dispatch_apply(count, self.dispatchQueue, task);
 };
 
-
 - (void)dealloc{
     self.dispatchQueue = nil;
 }
@@ -134,7 +131,6 @@
     return dispatch_get_main_queue();
 }
 
-#pragma mark - 主队列执行同步任务、异步任务、添加组任务
 
 @end
 

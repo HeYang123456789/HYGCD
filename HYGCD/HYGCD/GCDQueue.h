@@ -47,8 +47,4 @@ typedef void(^TaskBlock)(size_t);
 
 @end
 
-@interface Main_Queue : NSObject
-+ (dispatch_queue_t)getMainQueue;
-@end
-
 

@@ -10,8 +10,8 @@
 //
 
 #import "GCD.h"
-#import "GCDGroup.h"
 
+  /////////////////////类：GCD///////////////////////
 @implementation GCD
 
 #pragma mark  执行同步任务
@@ -26,16 +26,28 @@
     dispatch_async(queue.dispatchQueue, task);
 }
 
+#pragma mark 和组相关
++ (void)executeTask:(dispatch_block_t)task inQueue:(GCDQueue*)queue
+                                           inGroup:(GCDGroup*)group{
+    NSParameterAssert(task);
+    dispatch_group_async(group.dispatchGroup, queue.dispatchQueue, task);
+}
+
++ (void)notifyTask:(dispatch_block_t)task inQueue:(GCDQueue*)queue
+            inGroup:(GCDGroup*)group{
+    NSParameterAssert(task);
+    dispatch_group_notify(group.dispatchGroup, queue.dispatchQueue, task);
+}
+
 #pragma mark  一次性函数
 //+ (void)executeOnceTask:(dispatch_block_t)task{
 //    NSParameterAssert(task);
 //    GCDExecOnce(task);
 //}
 
-
 @end
 
-  ////////////////////////////////////////////
+  /////////////////////类：MainQueue///////////////////////
 
 @implementation MainQueue
 
@@ -83,7 +95,7 @@
 }
 @end
 
-  ////////////////////////////////////////////
+  ////////////////////类：GlobalQueue////////////////////////
 
 @implementation GlobalQueue
 
@@ -131,7 +143,7 @@
 }
 @end
 
-  ////////////////////////////////////////////
+  ////////////////////类：GlobalLowPriorityQueue////////////////////////
 
 @implementation GlobalLowPriorityQueue
 
@@ -180,7 +192,7 @@
 }
 @end
 
-  ////////////////////////////////////////////
+  ////////////////////类：GlobalHighPriorityQueue////////////////////////
 
 @implementation GlobalHighPriorityQueue
 
@@ -229,7 +241,7 @@
 }
 @end
 
-  ////////////////////////////////////////////
+  ////////////////////类：GlobalBackgroundPriorityQueue////////////////////////
 
 @implementation GlobalBackgroundPriorityQueue
 

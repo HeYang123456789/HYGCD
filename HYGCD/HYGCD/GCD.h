@@ -14,6 +14,8 @@
 #import <Foundation/Foundation.h>
 #import "GCDMacros.h"
 #import "GCDQueue.h"
+#import "GCDGroup.h"
+
 
 @class GCDGroup;
 
@@ -25,7 +27,6 @@
  *  2、可以直接使用组(Group)管理和控制系统提供的1个主队列，和4个全局并发队列
  *  3、可以创建异步或者同步任务，并添加到系统提供的1个主队列，和4个全局并发队列
  *  4、可以创建延迟提交任务(补充：GCD的afterDelay并不是延迟执行，而是延迟提交)
- *  5、提供一次性函数的调用
  */
 
 #pragma mark  执行同步任务
@@ -44,7 +45,7 @@
 
 @end
 
-  ////////////////////////////////////////////
+  //////////////////////MainQueue//////////////////////
 
 @interface MainQueue : NSObject
 
@@ -70,7 +71,7 @@
 @end
 
 
-  ////////////////////////////////////////////
+  //////////////////////GlobalQueue//////////////////////
 
 
 @interface GlobalQueue : NSObject
@@ -97,7 +98,7 @@
 
 @end
 
-  ////////////////////////////////////////////
+  /////////////////////GlobalLowPriorityQueue///////////////////////
 
 @interface GlobalLowPriorityQueue : NSObject
 
@@ -122,7 +123,7 @@
 + (void)applyExecuteTask:(TaskBlock)task count:(float)count;
 @end
 
-  ////////////////////////////////////////////
+  //////////////////////GlobalHighPriorityQueue//////////////////////
 
 @interface GlobalHighPriorityQueue : NSObject
 
@@ -147,7 +148,7 @@
 + (void)applyExecuteTask:(TaskBlock)task count:(float)count;
 @end
 
-  ////////////////////////////////////////////
+  ////////////////////GlobalBackgroundPriorityQueue////////////////////////
 
 @interface GlobalBackgroundPriorityQueue : NSObject
 
