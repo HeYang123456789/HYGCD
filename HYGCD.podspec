@@ -56,7 +56,7 @@ Pod::Spec.new do |s|
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
 
-  s.source_files  = "HYGCD/"
+  s.source_files  = "HYGCD/HYGCD/"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"

@@ -29,6 +29,7 @@
 #pragma mark - 使用示例
 -(void)setUp{
     
+    /////////////////////////////////////////////////////////
     // 在全局并发队列中处理下载任务，然后回到主线程中更新UI
     
     [GlobalQueue executeAsyncTask:^{
@@ -41,7 +42,7 @@
         }];
     }];
     
-    
+    /////////////////////////////////////////////////////////
     // 使用GCD的线程组
     // init group
     GCDGroup *group = [GCDGroup new];
@@ -67,6 +68,7 @@
         
     } inGroup:group];
     
+    /////////////////////////////////////////////////////////
     // 使用GCD的定时器
     // init timer
     self.timer = [[GCDTimer alloc] initInMainQueue];
@@ -81,6 +83,7 @@
     // start timer
     [self.timer start];
     
+    /////////////////////////////////////////////////////////
     // 使用GCD的信号量
     // init semaphore
     GCDSemaphore *semaphore = [GCDSemaphore new];
