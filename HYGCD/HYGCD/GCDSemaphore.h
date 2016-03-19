@@ -13,7 +13,7 @@
 
 @interface GCDSemaphore : NSObject
 
-@property (strong, readonly, nonatomic) dispatch_semaphore_t dispatchSemaphore;
+@property (readonly, nonatomic) dispatch_semaphore_t dispatchSemaphore;
 
 #pragma 初始化
 - (instancetype)init;

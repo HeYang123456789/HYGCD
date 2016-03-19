@@ -16,7 +16,7 @@
 @interface GCDQueue ()
 
 /** dispatch_queue_t */
-@property (nonatomic,strong,readwrite)dispatch_queue_t dispatchQueue;
+@property (nonatomic,readwrite)dispatch_queue_t dispatchQueue;
 
 @end
 

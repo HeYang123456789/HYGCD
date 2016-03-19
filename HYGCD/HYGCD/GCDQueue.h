@@ -19,7 +19,7 @@ typedef void(^TaskBlock)(size_t);
 
 @interface GCDQueue : NSObject
 
-@property (nonatomic,strong,readonly)dispatch_queue_t dispatchQueue;
+@property (nonatomic,readonly)dispatch_queue_t dispatchQueue;
 
 #pragma mark - 初始化
 - (instancetype)init;

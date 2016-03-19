@@ -13,7 +13,7 @@
 
 @interface GCDGroup ()
 
-@property (strong, nonatomic, readwrite) dispatch_group_t dispatchGroup;
+@property (nonatomic, readwrite) dispatch_group_t dispatchGroup;
 
 @end
 

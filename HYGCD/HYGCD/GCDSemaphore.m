@@ -13,7 +13,7 @@
 
 @interface GCDSemaphore ()
 
-@property (strong, readwrite, nonatomic) dispatch_semaphore_t dispatchSemaphore;
+@property (readwrite, nonatomic) dispatch_semaphore_t dispatchSemaphore;
 
 @end
 

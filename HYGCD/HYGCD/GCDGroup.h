@@ -13,7 +13,7 @@
 
 @interface GCDGroup : NSObject
 
-@property (strong, nonatomic, readonly) dispatch_group_t dispatchGroup;
+@property (nonatomic, readonly) dispatch_group_t dispatchGroup;
 
 #pragma 初始化
 - (instancetype)init;
