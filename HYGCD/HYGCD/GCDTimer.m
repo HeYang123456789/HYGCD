@@ -22,7 +22,7 @@
 /** isSuspend */
 @property (nonatomic,assign)BOOL isSuspend;
 
-@property (strong, readwrite, nonatomic) dispatch_source_t dispatchSource;
+@property (readwrite, nonatomic) dispatch_source_t dispatchSource;
 
 @end
 

@@ -14,7 +14,7 @@
 
 
 @interface GCDTimer : NSObject
-@property (strong, readonly, nonatomic) dispatch_source_t dispatchSource;
+@property (readonly, nonatomic) dispatch_source_t dispatchSource;
 
 #pragma 初始化
 - (instancetype)init;
